@@ -1,0 +1,31 @@
+# .github/workflows/main.yml
+
+name: Install Nginx
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  install-nginx:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install Ansible
+        run: |
+          python -m pip install --upgrade pip
+          pip install ansible
+
+      - name: Run Ansible Playbook
+        run: ansible-playbook playbook_install.yaml
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: false
