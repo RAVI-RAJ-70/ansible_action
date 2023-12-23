@@ -25,7 +25,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install ansible
 
+      - name: Create SSH Key
+        run: |
+          echo "$SSH_PRIVATE_KEY" > ssh_key
+          chmod 600 ssh_key
+
       - name: Run Ansible Playbook
-        run: ansible-playbook -i inventory.ini playbook_install.yaml
+        run: ansible-playbook install_nginx.yml -i /etc/ansible/hosts --private-key=ssh_key
         env:
           ANSIBLE_HOST_KEY_CHECKING: false
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
