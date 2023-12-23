@@ -31,7 +31,7 @@ jobs:
           chmod 600 ssh_key
 
       - name: Run Ansible Playbook
-        run: ansible-playbook install_nginx.yml -i /etc/ansible/hosts --private-key=ssh_key
+        run: ansible-playbook playbook_install.yaml -i /etc/ansible/hosts --private-key=raaz_key_new.pem
         env:
           ANSIBLE_HOST_KEY_CHECKING: false
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
