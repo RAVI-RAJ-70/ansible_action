@@ -28,10 +28,10 @@ jobs:
       - name: Create SSH Key
         run: |
           echo "$SSH_PRIVATE_KEY" > ssh_key
-          chmod 600 ssh_key
+          chmod 777 ssh_key
 
       - name: Run Ansible Playbook
-        run: ansible-playbook playbook_install.yaml -i /etc/ansible/hosts --private-key=raaz_key_new.pem
+        run: ansible-playbook -i inventory.ini install_nginx.yml
         env:
           ANSIBLE_HOST_KEY_CHECKING: false
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
