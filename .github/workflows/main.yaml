@@ -26,7 +26,7 @@ jobs:
 
     - name: Set up SSH Key
       run: |
-        mkdir -p /home/runner/.ssh/
+        mkdir -p /home/runner/raaz_key_new.pem
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > /home/runner/raaz_new_key.pem
         chmod 400 /home/runner/.ssh/id_rsa
       shell: bash
