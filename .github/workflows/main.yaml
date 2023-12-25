@@ -27,8 +27,8 @@ jobs:
     - name: Set up SSH Key
       run: |
         mkdir -p /home/runner/raaz_key_new.pem
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > /home/runner/raaz_new_key.pem
-        chmod 400 /home/runner/.ssh/id_rsa
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > /home/runner/raaz_key_new.pem
+        chmod 400 /home/runner/raaz_key_new.pem
       shell: bash
 
     - name: Run Ansible playbook
