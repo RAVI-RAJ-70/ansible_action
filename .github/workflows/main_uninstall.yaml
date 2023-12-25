@@ -19,7 +19,7 @@ jobs:
       with:
         python-version: 3.8
 
-    - name: uninstall Ansible
+    - name: install Ansible
       run: |
         pip install ansible
       continue-on-error: true
@@ -31,7 +31,7 @@ jobs:
         chmod 400 /home/runner/.ssh/id_rsa
       shell: bash
 
-    - name: Run Ansible playbook
+    - name: Run Ansible uninstall-ngnix playbook
       run: |
         ansible-playbook -i inventory.ini --private-key=/home/runner/.ssh/id_rsa -u ubuntu -b uninstall-ngnix.yaml
       env:
