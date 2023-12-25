@@ -1,5 +1,5 @@
 
-name: Install Nginx
+name: uninstall Nginx
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
       with:
         python-version: 3.8
 
-    - name: Install Ansible
+    - name: uninstall Ansible
       run: |
         pip install ansible
       continue-on-error: true
