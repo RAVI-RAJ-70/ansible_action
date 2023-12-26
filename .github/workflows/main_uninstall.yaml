@@ -2,9 +2,14 @@
 name: uninstall Nginx
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
+   workflow_dispatch:
+    inputs:
+      Run it:
+        description: 'run'
+        required: true
 
 jobs:
   deploy:
