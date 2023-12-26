@@ -8,7 +8,7 @@ on:
    workflow_dispatch:
     inputs:
       Run it:
-        description: 'run'
+        description: 'run it'
         required: true
 
 jobs:
