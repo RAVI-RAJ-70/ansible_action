@@ -33,6 +33,7 @@ jobs:
 
     - name: Run Ansible uninstall-ngnix playbook
       run: |
+        ansible all -i inventory.ini -m ping --private-key=/home/runner/.ssh/id_rsa -u ubuntu 
         ansible-playbook -i inventory.ini --private-key=/home/runner/.ssh/id_rsa -u ubuntu -b uninstall-ngnix.yaml
       env:
         ANSIBLE_HOST_KEY_CHECKING: false
