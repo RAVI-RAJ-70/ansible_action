@@ -2,9 +2,14 @@
 name: Install Nginx
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
+   workflow_dispatch:
+    inputs:
+      Run it:
+        description: 'Run'
+        required: true
 
 jobs:
   deploy:
