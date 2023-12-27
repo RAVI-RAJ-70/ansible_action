@@ -29,8 +29,8 @@
       state: present
       # update_cache: yes
 
-  - name: Check status of service
-    shell: systemctl status nginx
+  # - name: Check status of service
+  #   shell: systemctl status nginx
 
   - name: Start Nginx service
     service:
