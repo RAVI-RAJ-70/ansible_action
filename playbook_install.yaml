@@ -27,7 +27,7 @@
     apt:
       name: nginx
       state: present
-      # update_cache: yes
+      update_cache: yes
 
   # - name: Check status of service
   #   shell: systemctl status nginx
@@ -35,5 +35,5 @@
   - name: Start Nginx service
     service:
       name: nginx
-      state: started
+      state: restart
       enabled: yes
