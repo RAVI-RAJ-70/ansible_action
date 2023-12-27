@@ -34,5 +34,5 @@
   - name: Start Nginx service
     service:
       name: nginx
-      state: stop
+      state: restart
       #enabled: yes
