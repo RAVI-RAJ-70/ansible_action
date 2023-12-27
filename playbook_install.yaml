@@ -28,6 +28,9 @@
       name: nginx
       state: present
 
+  - name: Check status of service
+    shell: systemctl status nginx
+
   - name: Start Nginx service
     service:
       name: nginx
